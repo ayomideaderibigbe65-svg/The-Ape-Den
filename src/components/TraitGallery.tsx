@@ -16,10 +16,11 @@ export const TraitGallery: React.FC = () => {
   // Filtered traits
   const filteredTraits = useMemo(() => {
     return siteConfig.traits.filter((trait) => {
+      const hasImage = Boolean(trait.image);
       const matchesCategory = selectedCategory === 'All' || trait.category === selectedCategory;
       const matchesSearch = trait.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                             trait.category.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchesCategory && matchesSearch;
+      return hasImage && matchesCategory && matchesSearch;
     });
   }, [selectedCategory, searchQuery]);
 

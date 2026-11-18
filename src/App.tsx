@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
-import { Home } from './pages/Home';
-import { CollectionPage } from './pages/CollectionPage';
-import { MintPage } from './pages/MintPage';
-import { RoadmapPage } from './pages/RoadmapPage';
-import { FAQPage } from './pages/FAQPage';
+const Home = React.lazy(() => import('./pages/Home').then((m) => ({ default: m.Home })));
+const CollectionPage = React.lazy(() => import('./pages/CollectionPage').then((m) => ({ default: m.CollectionPage })));
+const MintPage = React.lazy(() => import('./pages/MintPage').then((m) => ({ default: m.MintPage })));
+const RoadmapPage = React.lazy(() => import('./pages/RoadmapPage').then((m) => ({ default: m.RoadmapPage })));
+const FAQPage = React.lazy(() => import('./pages/FAQPage').then((m) => ({ default: m.FAQPage })));
 import { NotFound } from './components/NotFound';
 
 export const App: React.FC = () => {
@@ -51,7 +51,7 @@ export const App: React.FC = () => {
       {isKnownRoute && <Navbar currentPath={currentPath} onNavigate={navigate} />}
       
       <main className="flex-1 transition-opacity duration-200" key={currentPath}>
-        {renderCurrentPage()}
+        <Suspense fallback={<div className="flex items-center justify-center h-full">Loading…</div>}>{renderCurrentPage()}</Suspense>
       </main>
 
       {isKnownRoute && <Footer onNavigate={navigate} />}

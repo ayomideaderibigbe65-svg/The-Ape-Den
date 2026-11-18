@@ -93,7 +93,11 @@ export const SneakPeekGallery: React.FC = () => {
                   src={peek.image}
                   alt={peek.title}
                   loading="lazy"
+                  decoding="async"
+                  width={600}
+                  height={600}
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  style={{backgroundColor: '#111'}}
                 />
                 
                 {/* Hover overlay hint */}
