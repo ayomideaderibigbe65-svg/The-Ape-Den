@@ -7,7 +7,7 @@ Official showcase and information website for **The Ape Den**, an NFT collection
 ## 🦍 Project Overview
 
 - **Name:** The Ape Den
-- **Official X:** [@ApeonInk](https://x.com/ApeDenRH)
+- **Official X:** [@ApeDenRH](https://x.com/ApeDenRH)
 - **Domain:** [theapeden.space](https://theapeden.space)
 - **Total Supply:** Exactly 2,222
 - **Blockchain:** Robinhood Chain
